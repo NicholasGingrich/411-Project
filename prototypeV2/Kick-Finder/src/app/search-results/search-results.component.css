@@ -1,0 +1,15 @@
+h3 {
+    color: black;
+    margin-left: 25px;
+}
+
+.td-right {
+    color: black;
+    margin-left: 25px;
+    width: auto;
+}
+
+.col-1 {
+    width: auto;
+    margin-left: 25px;
+}

@@ -1,0 +1,8 @@
+<app-search (queryEvent)="receiveQuery($event)"></app-search>
+<div class="row">
+    <div class="col-1">
+        <tr *ngFor="let resp of search_name_price">
+            <td class="td-right">{{resp}}</td>
+        </tr>
+    </div>
+</div>
