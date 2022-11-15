@@ -36,7 +36,7 @@ class Sneaker_Name(Resource):
         querystring = {"limit":"10","name":shoe_name}
 
         headers = {
-	        "X-RapidAPI-Key": "5cdd7f45e5msh8066594c12d1214p16968bjsnd2e6e099f9e7",
+	        "X-RapidAPI-Key": "insert API key here",
 	        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com"
         }
 
