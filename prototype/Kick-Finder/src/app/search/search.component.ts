@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-search',
@@ -7,15 +7,16 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  data:any;
-  constructor(private dataService: DataService) { }
+
+  @Output() queryEvent = new EventEmitter<string>();
+
+  constructor() { }
+
+  sendQuery(event : any) {
+    this.queryEvent.emit(event.target.value)
+  }
 
   ngOnInit(): void {
   }
 
-  getproductsSearch(name: any) {
-    const keyword = name.target.value;
-    const search = this.dataService.getSearchProductName(keyword);
-
-  }
 }
