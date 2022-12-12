@@ -15,19 +15,6 @@ def hello():
     return jsonify({'text':'Hello World!'})
 
 
-class Employees(Resource):
-    def get(self):
-        return {'employees': [{'id':1, 'name':'Balram'},{'id':2, 'name':'Tom'}]} 
-
-
-
-class Employees_Name(Resource):
-    def get(self, employee_id):
-        print('Employee id:' + employee_id)
-        result = {'data': {'id':1, 'name':'Balram'}}
-        return jsonify(result)
-
-
 class Sneaker_Name(Resource):
     def get(self, shoe_name):
         print("Shoe Name:" + shoe_name)
@@ -36,7 +23,7 @@ class Sneaker_Name(Resource):
         querystring = {"limit":"10","name":shoe_name}
 
         headers = {
-	        "X-RapidAPI-Key": "insert API key here",
+	        "X-RapidAPI-Key": "efda1df79cmshb58d570a24efdcep1328b4jsn7391c2b53ba8",
 	        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com"
         }
 
@@ -44,9 +31,6 @@ class Sneaker_Name(Resource):
         return response.json()
                
 
-
-api.add_resource(Employees, '/employees') # Route_1
-api.add_resource(Employees_Name, '/employees/<employee_id>') # Route_3
 api.add_resource(Sneaker_Name, '/sneakers/<shoe_name>') #route 4
 
 
