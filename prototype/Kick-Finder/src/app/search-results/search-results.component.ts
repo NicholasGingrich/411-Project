@@ -15,6 +15,8 @@ export class SearchResultsComponent implements OnInit {
   search_query : string = "";
   search_response = [];
   search_name_price : any[] = [];
+  hasSearched: boolean = false;
+
 
   serverMessageSubject: BehaviorSubject<any>;
   serverMessage$: Observable<any>;
@@ -26,7 +28,8 @@ export class SearchResultsComponent implements OnInit {
 
   extractNamePrice(){
     for (var shoeRecord of this.search_response) {
-      this.search_name_price.push([shoeRecord["name"], shoeRecord["estimatedMarketValue"], shoeRecord["links"]["goat"]])
+      this.search_name_price.push([shoeRecord["name"], shoeRecord["estimatedMarketValue"], shoeRecord["links"]["goat"], 
+      shoeRecord["image"]["small"]])
     }
   }
 
@@ -43,6 +46,7 @@ export class SearchResultsComponent implements OnInit {
 
   receiveQuery(event : any) {
     this.search_query = event
+    this.hasSearched = true;
 
     this.getData();
     this.serverMessage$= this.serverMessageSubject.asObservable();
